@@ -1,11 +1,15 @@
-import './App.scss'
+import { ThemeProvider  } from '@mui/material/styles';
+import React from 'react';
+import { useAppTheme  } from './theme';
+import { Button } from '@mui/material';
 
-function App() {
+
+export default function App() {
+  const [ appTheme ] = useAppTheme()
+
   return (
-    <div className="App">
-
-    </div>
-  )
+      <ThemeProvider theme={appTheme.muiTheme}>
+        <Button onClick={() => appTheme.toggleDarkMode()}>toggle mode</Button>
+      </ThemeProvider>
+  );
 }
-
-export default App
