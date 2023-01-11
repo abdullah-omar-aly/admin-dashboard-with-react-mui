@@ -9,20 +9,21 @@ const getPaletteColors = (mode) => {
         // palette values for dark mode
         primary: { main: '#009688' },
         secondary: { main: '#512DA8' },
-        primary_bg: { main:  "#151929" },
-        secondary_bg: { main: '#1C2538' },
-        primary_text: { main: "fff"},
-        secondary_text: { main: "#898FA1"}
+        secondary_bg: { main:  "#151929" },
+        primary_bg: { main: '#1C2538' },
+        secondary_text : { main: "#ffffff"},
+        primary_text: { main: "#898FA1"} , 
+        primary_fg: {main: '#e81b4b'}
 
       }
       : {
         // palette values for ligth mode
-        primary: { main: '##009688' },
+        primary: { main: '#009688' },
         secondary: { main: '#512DA8' },
-        primary_bg: { main: '#e0e2e2' },
-        secondary_bg: { main: '#eee' },
-        primary_text: { main: "#000000"},
-        secondary_text: { main: "#99989A"}
+        secondary_bg: { main: '#fff' },
+        primary_bg: { main: '#eee' },
+        secondary_text : { main: "black"},
+        primary_text: { main: "black"}
 
       }),
   }
