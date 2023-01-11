@@ -1,5 +1,6 @@
 import React from "react";
 import { createTheme } from '@mui/material/styles'
+import useLocalStorage from "./hooks/useLocalStorage";
 
 const getPaletteColors = (mode) => {
   return {
@@ -24,7 +25,8 @@ const getPaletteColors = (mode) => {
 
 export const useMuiTheme = () => {
 
-  const [mode, setMode] = React.useState('dark')
+  const [mode, setMode] = useLocalStorage('mode' , "light" )
+
   const toggleDarkMode = () => { mode === 'light' ? setMode('dark') : setMode('light') }
 
   const theme = React.useMemo(() => createTheme({
@@ -34,10 +36,9 @@ export const useMuiTheme = () => {
       ...getPaletteColors(mode)
     }
   }), [mode]);
-  console.log(theme)
   
   return theme
 
-  
+
 }
 
