@@ -1,15 +1,16 @@
 import { ThemeProvider  } from '@mui/material/styles';
 import React from 'react';
-import { useAppTheme  } from './theme';
-import { Button } from '@mui/material';
+import { useMuiTheme  } from './theme';
+import { CssBaseline } from '@mui/material';
 
 
 export default function App() {
-  const [ appTheme ] = useAppTheme()
+  const  muiTheme  = useMuiTheme()
 
   return (
-      <ThemeProvider theme={appTheme.muiTheme}>
-        <Button onClick={() => appTheme.toggleDarkMode()}>toggle mode</Button>
+      <ThemeProvider theme={muiTheme}>
+        {/* <CssBaseline /> */}
+
       </ThemeProvider>
   );
 }

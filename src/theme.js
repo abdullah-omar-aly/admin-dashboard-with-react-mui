@@ -1,52 +1,43 @@
-import { amber, deepOrange, grey } from "@mui/material/colors";
-import React ,  { createContext, useState, useMemo } from "react";
-import * as muiStyles from  '@mui/material/styles'
+import React from "react";
+import { createTheme } from '@mui/material/styles'
 
-export const getDesignTokens = (mode) => ({
+const getPaletteColors = (mode) => {
+  return {
+    ...(mode === 'dark'
+      ? {
+        // palette values for dark mode
+        primary: { main: '#4CC6AD' },
+        secondary: { main: '#3e4396' },
+        primary_bg: { main:  "#fff" },
+        secondary_bg: { main: '#151929' },
+
+      }
+      : {
+        // palette values for ligth mode
+        primary: { main: '#4CC6AD' },
+        secondary: { main: '#3e4396' },
+        primary_bg: { main: '#FF2A9C' },
+        secondary_bg: { main: '#eee' },
+      }),
+  }
+}
+
+export const useMuiTheme = () => {
+
+  const [mode, setMode] = React.useState('dark')
+  const toggleDarkMode = () => { mode === 'light' ? setMode('dark') : setMode('light') }
+
+  const theme = React.useMemo(() => createTheme({
     palette: {
       mode ,
-      ...(mode === 'light'
-        ? {
-            // palette values for light mode
-            primary: amber,
-            divider: amber[200],
-            text: {
-              primary: grey[900],
-              secondary: grey[800],
-            },
-          }
-        : {
-            // palette values for dark mode
-            primary: deepOrange,
-            divider: deepOrange[700],
-            background: {
-              default: deepOrange[900],
-              paper: deepOrange[900],
-            },
-            text: {
-              primary: '#fff',
-              secondary: grey[500],
-            },
-          }),
-    },
-  });
+      toggleDarkMode , 
+      ...getPaletteColors(mode)
+    }
+  }), [mode]);
+  console.log(theme)
   
-export const useAppTheme = () => {
-    
-    const [mode  , setMode ] = React.useState('light')
+  return theme
 
-    const muiTheme = React.useMemo(() => muiStyles.createTheme(getDesignTokens(mode)), [mode]);
-
-    const appTheme = React.useMemo(() => ({
-      mode ,
-      enableDarkMode: () => setMode('dark') ,
-      disableDarkMode: () => setMode('light') ,
-      toggleDarkMode: function() {
-        mode === 'light' ? this.enableDarkMode() : this.disableDarkMode()
-      },
-      muiTheme
-    }) , [mode])
-
-    return [appTheme]
+  
 }
 
