@@ -15,7 +15,7 @@ export function Topbar() {
     const theme = useTheme();
 
     return (
-        <Box display="flex" justifyContent="space-between" paddingY={2}>
+        <Box display="flex" justifyContent="space-between" paddingY={2} position="sticky" top="0" zIndex={100} bgcolor="secondary_bg.main">
             {/* Sidebar button */}
             <Button onClick={toggleCollapse}>
                 <MenuOutlinedIcon />
