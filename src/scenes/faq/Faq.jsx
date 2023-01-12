@@ -4,80 +4,43 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import {Box , useTheme} from "@mui/material"
-
+import { Box } from "@mui/material"
+import { mockFaqData } from '../../data/mockData';
+import Header from '../../components/Header'
 
 export function Faq() {
-  const [expanded , setExpenaded] = useState('')
+  const [expanded, setExpenaded] = useState("")
+
+  const handleChange = (isExpanded, item) => {
+    setExpenaded(isExpanded ? item : false)
+  }
+
+  
   return (
     <Box m="20px">
-      {/* <Header title="FAQ" subtitle="Frequently Asked Questions Page" /> */}
+      <Header title="FAQ" subtitle="Frequently Asked Questions Page" />
 
-      <Accordion  sx={{bgcolor: 'primary_bg.main'}}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary.main" variant="h7">
-            An Important Question
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion  sx={{bgcolor: 'primary_bg.main'}}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary.main" variant="h7">
-            Another Important Question
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion  sx={{bgcolor: 'primary_bg.main'}}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary.main" variant="h7">
-            Your Favorite Question
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion  sx={{bgcolor: 'primary_bg.main'}}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary.main" variant="h7">
-            Some Random Question
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion  sx={{bgcolor: 'primary_bg.main'}}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary.main" variant="h7">
-            The Final Question
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+
+      {
+        mockFaqData.map(item => (
+          <Accordion
+            key={item.id}
+            onChange={(event , isExpanded) => handleChange(isExpanded, item.id)}
+            expanded={expanded === item.id}
+            sx={{ bgcolor: 'primary_bg.main' }}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <Typography color="primary.main" variant="h7">
+                {item.question}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                {item.answer}
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        ))
+      }
     </Box>
   )
 }

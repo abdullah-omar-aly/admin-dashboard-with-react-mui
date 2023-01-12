@@ -1,5 +1,3 @@
-// import { tokens } from "../theme";
-
 export const mockDataTeam = [
   {
     id: 1,
@@ -541,7 +539,6 @@ export const mockLineData = [
   },
   {
     id: "us",
-    // color: tokens("dark").redAccent[200],
     color: "#512DA8",
     data: [
       {
@@ -1282,3 +1279,32 @@ export const mockGeographyData = [
     value: 171135,
   },
 ];
+
+
+export const mockFaqData = [
+  { 
+    id: "1" , 
+    question: "1st Question",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget"
+  } ,
+  { 
+    id: "2" , 
+    question: "2nd Question",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget"
+  } ,
+  { 
+    id: "3" , 
+    question: " 3rd Question",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget"
+  } ,
+  { 
+    id: "4" , 
+    question: " 4th Question",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget"
+  } ,
+  { 
+    id: "5" , 
+    question: " 5th Question",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget"
+  } ,
+]
