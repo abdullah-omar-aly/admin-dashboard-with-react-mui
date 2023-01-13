@@ -38,16 +38,15 @@ export function Sidebar() {
   return (
     <Box
       component="aside"
-      display='flex'
       sx={{
         transitionProperty: 'width',
         transitionDuration: '300ms',
         width: isCollapsed ? 0 : '300px',
+        bgcolor: "red",
         overflow: 'hidden'
-
       }}
     >
-      <Box sx={{ minWidth: "250px", bgcolor: 'primary_bg.main' }}>
+      <Box sx={{  bgcolor: 'primary_bg.main' , width: "300px" , height: '100%' , overflowY: 'auto' }}>
         <Typography
           variant='h5'
           sx={{

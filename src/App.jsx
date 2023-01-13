@@ -9,6 +9,7 @@ import { Routes , Route} from 'react-router-dom';
 import {Dashboard} from './scenes/dashboard'
 import { Team } from './scenes/team';
 import { Faq } from './scenes/faq';
+import {Calendar} from './scenes/calendar'
 
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
                 <Route path='/' element={<Dashboard />} />
                 <Route path='/team' element={<Team />} />
                 <Route path='/faq' element={<Faq />} />
+                <Route path='/calendar' element={<Calendar />} />
             </Routes>
           </Box>
         </Box>
