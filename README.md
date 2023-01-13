@@ -29,13 +29,13 @@
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/abdullah-omar-aly/admin-dashboard-with-react-mui.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd admin-dashboard-with-react-mui
 ```
 
 Install dependencies
