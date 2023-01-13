@@ -3,7 +3,7 @@ import React from 'react';
 import { useMuiTheme } from './theme';
 import { Box, CssBaseline } from '@mui/material';
 import { Sidebar, SidebarProvider } from './globals/sidebar';
-import './App.scss'
+import './App.css'
 import {Topbar} from './globals/topbar';
 import { Routes , Route} from 'react-router-dom';
 import {Dashboard} from './scenes/dashboard'
